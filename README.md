@@ -16,3 +16,10 @@ Modulos necesarios:
 -nm-applet(redes y wifi en i3blocks)
 
 -todo
+
+-ranger
+
+-fzf(buscador para ranger)
+
+-pywal(porque es cool)
+
