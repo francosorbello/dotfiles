@@ -23,3 +23,4 @@ Modulos necesarios:
 
 -pywal(porque es cool)
 
+-micro text editor
