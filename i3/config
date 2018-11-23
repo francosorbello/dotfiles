@@ -253,7 +253,6 @@ bindsym $mod+F4 mode "$mode_system"
 #exec $HOME/.bin/scripts/lock.sh
 #workspaces automaticos
 assign [class="kate"] 6 $ws6
-assign [class="dolphin"] 3 $ws3
 assign [class="Opera"] 2 $ws2
 assign [class="okular"] 4 $ws4
 assign [class="Code"] 5 $ws5
@@ -265,16 +264,26 @@ exec nm-applet
 exec setxkbmap -option caps:ctrl_modifier
 
 #bind acceso directo a unculinux
-bindsym $mod+U workspace 3 $ws3 ; exec konsole -e ranger /home/rulo/Documentos/UNCU\ LINUX/
+bindsym $mod+U workspace 3 $ws3 ; exec konsole --hide-menubar -e ranger /home/rulo/Documentos/UNCU\ LINUX/
 
 #bind acceso directo a todo list para funcionar necesita el programa todo
-set $todo_list TODO: (a) añadir elemento , (s) mostrar elementos
+set $todo_list TODO: (a) añadir,(s) mostrar,(e) editar, (d) borrar
+
+#el script ~/bin/stodo.sh muestra el contenido de todo
+#para (e) y (d) le paso a todo "zenity", un creador de ventanas que me deja meter info como por ej los
+#nros de los elementos a borrar o editar
+
 
 mode "$todo_list"{ 
-	bindsym a exec konsole -e todo -a && ~/bin/stodo.sh  , mode "default" 
-	bindsym b exec bash -c todo -l > /home/rulo/todof.txt  &&  notify-send TODO "`tail /home/rulo/todof.txt`" -i /home/rulo/Imágenes/gates_page.png , mode "default"
+	bindsym a exec urxvt -e todo -a && ~/bin/stodo.sh  , mode "default" 
+	bindsym b exec bash -c todo > /home/rulo/todof.txt  &&  notify-send "Aguante Windows" "`tail /home/rulo/todof.txt`" -i /home/rulo/Imágenes/gates_page.png , mode "default"
 	bindsym s exec ~/bin/stodo.sh , mode "default"
+	bindsym e exec urxvt -e todo -e `zenity --entry --text="Item a editar"` && ~/bin/stodo.sh , mode "default"
+	bindsym d exec todo -r `zenity --entry --text="Item(s) a borrar"` && ~/bin/stodo.sh , mode "default"
 	bindsym Escape mode "default"
 }
 #por que con una sola | no funcionaba?
 bindsym $mod+T mode "$todo_list" 
+
+#bindsym $mod+P exec todo -r `zenity --entry --text="Seleccione elemento a borrar"` && ~/bin/stodo.sh
+
