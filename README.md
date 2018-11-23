@@ -24,3 +24,5 @@ Modulos necesarios:
 -pywal(porque es cool)
 
 -micro text editor
+
+-zenity (genera pop ups y guarda la entrada del user como texto)
