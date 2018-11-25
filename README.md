@@ -26,3 +26,7 @@ Modulos necesarios:
 -micro text editor
 
 -zenity (genera pop ups y guarda la entrada del user como texto)
+
+-cmus(reproductor de musica en consola)
+
+-urxvt(consola mas rapida que konsole pero mas fea/dificil de configurar)
