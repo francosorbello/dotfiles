@@ -120,6 +120,7 @@ bindsym $mod+7 workspace number 7 $ws7
 bindsym $mod+0 workspace $ws10
 bindsym $mod+8 workspace number 8 $ws8
 bindsym $mod+9 workspace number 9 $ws9
+bindsym $mod+Tab workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1 $ws1
@@ -173,7 +174,7 @@ new_window pixel 6
 gaps inner 4
 gaps outer 4
 #fondo de pantalla
-exec_always nitrogen --set-auto /home/rulo/Imágenes/wall/Poly\ Lakeside.jpg
+exec_always nitrogen --set-auto --sort=time /home/rulo/Imágenes/wall/Poly\ Lakeside.jpg
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -273,17 +274,44 @@ set $todo_list TODO: (a) añadir,(s) mostrar,(e) editar, (d) borrar
 #para (e) y (d) le paso a todo "zenity", un creador de ventanas que me deja meter info como por ej los
 #nros de los elementos a borrar o editar
 
+for_window [instance="pica"] move to scratchpad ; scratchpad show
+bindsym $mod+Shift+S scratchpad show
 
-mode "$todo_list"{ 
-	bindsym a exec urxvt -e todo -a && ~/bin/stodo.sh  , mode "default" 
+mode "$todo_list"{
+	bindsym a exec urxvt -name pica +sb -e todo -a && ~/bin/stodo.sh  , mode "default" 
 	bindsym b exec bash -c todo > /home/rulo/todof.txt  &&  notify-send "Aguante Windows" "`tail /home/rulo/todof.txt`" -i /home/rulo/Imágenes/gates_page.png , mode "default"
 	bindsym s exec ~/bin/stodo.sh , mode "default"
-	bindsym e exec urxvt -e todo -e `zenity --entry --text="Item a editar"` && ~/bin/stodo.sh , mode "default"
+	#modo de muestra alternativo:
+	bindsym shift+s exec urxvt -name pica +sb -hold -e todo , mode "default"
+	bindsym e exec urxvt -name pica +sb -e todo -e `zenity --entry --text="Item a editar"` && ~/bin/stodo.sh , mode "default"
 	bindsym d exec todo -r `zenity --entry --text="Item(s) a borrar"` && ~/bin/stodo.sh , mode "default"
 	bindsym Escape mode "default"
 }
 #por que con una sola | no funcionaba?
 bindsym $mod+T mode "$todo_list" 
 
-#bindsym $mod+P exec todo -r `zenity --entry --text="Seleccione elemento a borrar"` && ~/bin/stodo.sh
+#bindsym $mod+P 
 
+#recordatorio de mis tareas al iniciar sistema
+exec_always ~/bin/stodo.sh
+
+#bind para iniciar app de musica
+bindsym $mod+Shift+M workspace Música ; exec urxvt -e cava ; exec urxvt -e cmus ; layout tabbed
+
+#bind spectacle a tecla impr pant
+bindcode 107 exec --no-startup-id spectacle
+
+#binds reproductor cmus
+set $cmus_list CMUS: (n)next,(a)previous,(p)pause,(c)play
+
+mode "$cmus_list"{
+		bindsym n exec cmus-remote -n, mode "default"
+		bindsym a exec cmus-remote -r, mode "default"
+		bindsym p exec cmus-remote -u, mode "default"
+		bindsym c exec cmus-remote -p, mode "default"
+		bindsym Escape mode "default"
+}
+bindsym $mod+M mode "$cmus_list"
+
+#bind apagar/prender red
+bindcode $mod+69 --release exec ~/bin/wifiswitch.sh
