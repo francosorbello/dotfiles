@@ -94,6 +94,7 @@ sub cmus {
 
                 @metadata[0] = $value if $key eq 'artist';
                 @metadata[1] = $value if $key eq 'title';
+ #               @metadata[2] = $prueba
             }
         }
 
@@ -103,6 +104,15 @@ sub cmus {
             # metadata found so we are done
             print(join ' - ', @metadata,'•');
             exit 0;
+        }
+        else{
+        	buttons('cmus');
+        	
+        	#si la cancion no tiene metadata imprimo el nombre del archivo
+		    #el script songname obtiene el nombre del mp3 solo
+		    my $songar = `/home/rulo/bin/songname.sh`;
+        	print($songar);
+        	exit 0;
         }
     }
 }
