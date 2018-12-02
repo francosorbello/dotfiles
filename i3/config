@@ -45,6 +45,7 @@ bindsym $mod+Shift+q kill
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 bindsym $mod+d exec /home/rulo/rofix
+bindsym $mod+Shift+d exec /home/rulo/rofix2
 
 # change focus
 bindsym $mod+j focus left
@@ -174,7 +175,7 @@ new_window pixel 6
 gaps inner 4
 gaps outer 4
 #fondo de pantalla
-exec_always nitrogen --set-auto --sort=time /home/rulo/Imágenes/wall/Poly\ Lakeside.jpg
+exec_always nitrogen --set-auto /home/rulo/Imágenes/wall/Poly\ Lakeside.jpg
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -287,7 +288,6 @@ mode "$todo_list"{
 	bindsym d exec todo -r `zenity --entry --text="Item(s) a borrar"` && ~/bin/stodo.sh , mode "default"
 	bindsym Escape mode "default"
 }
-#por que con una sola | no funcionaba?
 bindsym $mod+T mode "$todo_list" 
 
 #bindsym $mod+P 
@@ -315,3 +315,20 @@ bindsym $mod+M mode "$cmus_list"
 
 #bind apagar/prender red
 bindcode $mod+69 --release exec ~/bin/wifiswitch.sh
+
+#bind kdeconnect
+
+bindsym $mod+C exec kdeconnect-cli ; exec kdeconnect-indicator ; exec kdeconnect-handler
+
+#script de (des)montado
+
+set $mount_list MONTAR: (m)montar, (u)desmontar
+
+mode "$mount_list"{
+	bindsym m exec urxvt -name pica +sb -e /home/rulo/bin/mount_script.sh m, mode "default"
+	bindsym Escape mode "default"
+	bindsym u exec urxvt -name pica +sb -e /home/rulo/bin/mount_script.sh u, mode "default"
+
+}
+
+bindsym $mod+P mode "$mount_list"
