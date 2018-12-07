@@ -32,3 +32,5 @@ Modulos necesarios:
 -urxvt(consola mas rapida que konsole pero mas fea/dificil de configurar)
 
 -pmount(herramienta para montar sin permisos de user)
+
+-feh
