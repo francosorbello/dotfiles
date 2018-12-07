@@ -1,0 +1,35 @@
+#!/bin/sh
+
+SWITCH=`cat /home/rulo/scdn`
+
+case $BLOCK_BUTTON in
+	1)	
+		case $SWITCH in
+			0)
+				echo 1 > /home/rulo/scdn
+				/home/rulo/bin/ciclodn/mytransition fo-da fo-na
+				echo "🌑"
+				;;
+			1)
+				echo 0 > /home/rulo/scdn
+				#nitrogen --set-auto ~/Imágenes/wall/fw/ciclo/diaanimal.png
+				/home/rulo/bin/ciclodn/mytransition fo-na fo-da
+				echo "🌕"
+				;;
+		esac
+		;;
+	3)
+		case $SWITCH in
+			0)
+				echo 1 > /home/rulo/scdn
+				nitrogen --set-auto ~/Imágenes/wall/fw/ciclo/nochecasa.jpg
+				echo "🌑"
+				;;
+			1)
+				echo 0 > /home/rulo/scdn
+				nitrogen --set-auto ~/Imágenes/wall/fw/ciclo/diacasa.jpg
+				echo "🌕"
+				;;
+		esac
+		;;
+esac		

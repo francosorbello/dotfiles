@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#mytransition recibe 2 parametros, uno que indica el archivo a hacer fade in y otro al cual hacerle fade out. Le paso solo el principio del nombre del archivo porque las fotos por las cuales voy pasando estan guardadas en una carpeta aparte. Por ejemplo: para foto1 voy a tener:
+#fo-foto0, fo-foto25...etc, donde 0,25,50..100 indica el grado de opacidad
+
+#primero hago el fade out
+percent=0
+while [ $percent -lt 100 ];do
+	feh --bg-center ~/Imágenes/wall/transicion/${1}${percent}.bg
+	((percent+=25))
+done
+
+#ahora el fade in
+
+while [ $percent -ge 0 ];do
+	feh --bg-center ~/Imágenes/wall/transicion/${2}${percent}.bg
+	((percent-=25))
+done

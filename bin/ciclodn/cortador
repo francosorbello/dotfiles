@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#cortador recibe una foto y un prefijo y genera varias imagenes de la forma:
+#[prefijo][porcentaje].bg
+#donde el porcentaje es el grado de oscurecimiento de la imagen
+
+percent=100
+while [ $percent -ge 0 ];do
+	convert $1 -fill black -colorize $percent ~/Imágenes/wall/transicion/$2${percent}.bg
+	((percent-=25))
+done
