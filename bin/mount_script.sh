@@ -8,6 +8,7 @@ case $1 in
 		read -p "Seleccione dispositivo a montar: " disp
 		read -p "Ingrese un nombre para el dispositivo: " name
 		pmount $disp $name
+		notify-send "Mount Script" "${name} montado correctamente."
 		;;
 	#si la entrada es "u",desmonto
 	u)
@@ -15,6 +16,11 @@ case $1 in
 		ls /media/
 		echo ""
 		read -p "Seleccione dispostivo a desmontar: " disp
+		echo ""
+		sync
+		sleep 1
 		pumount $disp
+		echo ""
+		read -p "Ingrese cualquier caracter para continuar: " salida
 		;;
 esac
