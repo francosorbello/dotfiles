@@ -12,7 +12,7 @@ Mis configuraciones de Linux
 - todo
 - ranger
 - fzf(buscador para ranger)
-- ywal(porque es cool)
+- pywal(porque es cool)
 - micro text editor
 - zenity (genera pop ups y guarda la entrada del user como texto)
 - cmus(reproductor de musica en consola)
