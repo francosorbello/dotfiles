@@ -2,7 +2,8 @@
 # Cosas de I3		                                                           #
 ################################################################################
 set $mod Mod4
-font pango:System San Francisco Display 9
+#font pango:System San Francisco Display 9
+font pango:DejaVu Sans Mono 9
 
 #Lanzar una consola
 bindsym $mod+Return exec konsole --hide-menubar
@@ -171,7 +172,7 @@ exec systemctl --user start xfce4-notifyd
 exec nm-applet
 #bind de block mayus a ctrl
 exec setxkbmap -option caps:ctrl_modifier
-
+exec_always libinput-gestures-setup start
 
 ################################################################################
 # Controles del sistema                                                        #
@@ -331,3 +332,16 @@ bindsym $mod+P mode "$mount_list"
 
 #bind de notepad
 bindsym $mod+n exec urxvt -name pica +sb -e micro ~/notas.txt
+
+#bind de consoleweb
+#for_window [instance="surf"] move to scratchpad ; scratchpad show
+for_window [instance="surf"] floating toggle
+bindsym $mod+B exec ~/bin/consoleweb.sh
+
+################################################################################
+# Doble Pantalla	                                                           #
+################################################################################
+#force_xinerama yes
+
+
+
