@@ -20,3 +20,4 @@ Mis configuraciones de Linux
 - pmount(herramienta para montar sin permisos de user)
 - feh
 - surf
+- libinput
