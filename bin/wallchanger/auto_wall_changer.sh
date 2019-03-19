@@ -6,10 +6,10 @@ while true; do
 	if [[ "$horaant" != "$hora" ]]; then
 		if [[ "$hora" -gt 7 && "$hora" -lt 20 ]];then
 		#si es de dia, pongo un wallpaper random de la carpeta dia
-			nitrogen --set-auto --random ~/bin/wallchanger/files/dia
+			nitrogen --set-auto --random ~/dotfiles/bin/wallchanger/files/dia
 		else
 		#caso contrario, pongo uno nocturno
-			nitrogen --set-auto --random ~/bin/wallchanger/files/noche
+			nitrogen --set-auto --random ~/dotfiles/bin/wallchanger/files/noche
 		fi
 		horaant=$hora
 	fi

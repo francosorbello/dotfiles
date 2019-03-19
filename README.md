@@ -21,3 +21,4 @@ Mis configuraciones de Linux
 - feh
 - surf
 - libinput
+- display-visor

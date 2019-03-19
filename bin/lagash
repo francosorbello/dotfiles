@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~/Documentos/UNCU\ LINUX/Lagash/TP/equipo-4
+subl3
+npm	start
