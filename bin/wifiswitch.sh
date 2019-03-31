@@ -3,6 +3,9 @@
 #guardo un valor en sc.txt que me dice si la red esta encendida o no
 #si switch=1,apago y cambio a 0. caso contrario, viceversa
 
+if [ ! [ -e /home/rulo/sc.txt ]]; then
+	touch /home/rulo/sc.txt
+fi
 SWITCH=`cat /home/rulo/sc.txt`
 case $SWITCH in
 	0) 

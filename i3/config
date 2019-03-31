@@ -157,6 +157,10 @@ new_window pixel 6
 gaps inner 4
 gaps outer 4
 
+# hide/unhide i3status bar
+bindsym $mod+Shift+H bar mode toggle ,gaps inner all set 0 , gaps outer all set 0
+
+
 ################################################################################
 # Autostart                                                                    #
 ################################################################################
