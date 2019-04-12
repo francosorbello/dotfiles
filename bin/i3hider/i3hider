@@ -1,0 +1,17 @@
+#!/bin/bash
+ 
+# This if-statement checks to find your night-config, and replaces it with the day-config if it finds it.
+ 
+# If it finds your night-config, that means you're using the day-config.
+# The script will then change the name of the day-config to "day-config" and the name of the night-config to "config" (the one i3 looks for).
+# If it doesn't find the file "night-config", then that means you're already using it (and its name is therefore "config" instead of night-config).
+ 
+if [ -f ~/dotfiles/bin/i3hider/hidden ]
+then
+    # renames the files
+    mv ~/dotfiles/bin/i3hider/hidden ~/.config/i3/Config
+    mv ~/.config/i3/config ~/dotfiles/bin/i3hider/not-hidden
+    mv ~/.config/i3/Config ~/.config/i3/config
+    # restarts i3
+    i3-msg restart
+fi
