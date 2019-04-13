@@ -1,0 +1,3 @@
+#PEGAR ESTO EN .bashrc. Al ejectuar i3conf abro el config de i3 y al cerrarlo guardo los cambios en git
+
+alias i3conf='micro ~/.config/i3/config && yes|cp ~/.config/i3/config ~/dotfiles/i3/config'
