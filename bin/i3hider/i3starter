@@ -1,0 +1,4 @@
+#!/bin/bash
+echo 1 > /home/rulo/sci3.txt
+home/rulo/dotfiles/bin/i3hider/i3hider2.sh
+
