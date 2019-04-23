@@ -338,7 +338,7 @@ bindsym $mod+o exec opera
 set $cmus_list CMUS: (n)next,(a)previous,(p)pause,(c)play
 
 #bind para iniciar app de musica
-bindsym $mod+Shift+M workspace Música ; exec urxvt -e cava ; exec konsole -e cmus ; layout tabbed
+bindsym $mod+Shift+M workspace Música ; exec urxvt -e cava ; exec urxvt -e cmus ; layout tabbed
 
 
 mode "$cmus_list"{
