@@ -14,11 +14,6 @@ new_float normal
 # Hide borders
 hide_edge_borders none
 
-# change borders
-bindsym $mod+u border none
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font xft:URWGothic-Book 9
@@ -238,6 +233,8 @@ exec nm-applet
 exec setxkbmap -option caps:ctrl_modifier
 exec_always libinput-gestures-setup start
 
+#pongo el tema bonito al empezar
+
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -336,7 +333,7 @@ bindsym $mod+o exec opera
 set $cmus_list CMUS: (n)next,(a)previous,(p)pause,(c)play
 
 #bind para iniciar app de musica
-bindsym $mod+Shift+M workspace Música ; exec urxvt -e cava ; exec konsole -e cmus ; layout tabbed
+bindsym $mod+Shift+M workspace Música ; exec urxvt -e cava ; exec urxvt -e cmus ; layout tabbed
 
 
 mode "$cmus_list"{
@@ -367,6 +364,9 @@ for_window [instance="pica"] move to scratchpad ; scratchpad show
 
 #bind de notepad
 bindsym $mod+Shift+N exec urxvt -name pica +sb -e micro ~/notas.txt
-#bind modo trabajo
 
+#bind modo trabajo
 bindsym $mod+T exec ~/dotfiles/bin/i3hider/i3hider2.sh
+
+#bind ranger
+bindsym $mod+U exec konsole --hide-menubar -e ranger
