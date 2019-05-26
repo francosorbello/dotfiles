@@ -16,6 +16,10 @@ currentdesktop := 1
 ;to replace the # before each number to a ^
 
 Capslock::Control
+PgUp::Home
+PgDn::End
+Home::PgUp
+End::PgDn
 ^#D::NewDesktop()
 ^#F4::CloseDesktop()
 #1::SwitchDesktop(1)
