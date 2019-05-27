@@ -23,7 +23,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec terminal
-bindsym $mod+Return exec konsole --hide-menubar
+bindsym $mod+Return exec tilix
 bindsym $mod+Shift+Return exec urxvt -name pica +sb
 
 
@@ -125,12 +125,12 @@ bindsym $mod+Ctrl+Left workspace prev
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 • Terminales
-set $ws2 • Opera
-set $ws3 • Dolphin
-set $ws4 • Documentos
-set $ws5 • Visual Studio Code
-set $ws6 • Kate
+set $ws1 • 
+set $ws2 • 
+set $ws3 • 
+set $ws4 • 
+set $ws5 • 
+set $ws6 • 6
 set $ws7 • 7
 set $ws8 • 8
 set $ws9 • 9
@@ -161,6 +161,12 @@ bindsym $mod+Shift+7 move container to workspace number 7 $ws7
 bindsym $mod+Shift+8 move container to workspace number 8 $ws8
 bindsym $mod+Shift+9 move container to workspace number 9 $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# dual monitor setup
+workspace 6 output VGA1
+workspace 7 output VGA1
+workspace 8 output VGA1
+workspace 9 output VGA1
 
 
 # reload the configuration file
@@ -227,12 +233,12 @@ mode "resize" {
 exec_always compton
 #notificador
 exec systemctl --user start xfce4-notifyd
-exec nm-applet
-#bind de block mayus a ctrl
+
+#bind de teclas
 exec setxkbmap -option caps:ctrl_modifier
-#exec_always libinput-gestures-setup start
+exec ~/dotfiles/bin/thinkbind.sh
+
 exec nitrogen --set-auto /home/rulo/Imágenes/okami.png
-#pongo el tema bonito al empezar
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
@@ -240,7 +246,6 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id start_conky_grey
-exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
@@ -332,7 +337,7 @@ bindsym $mod+o exec opera
 set $cmus_list CMUS: (n)next,(a)previous,(p)pause,(c)play
 
 #bind para iniciar app de musica
-bindsym $mod+Shift+M workspace Música ; exec urxvt -e cava ; exec urxvt -e cmus ; layout tabbed
+bindsym $mod+Shift+M workspace  ;exec urxvt -e cmus 
 
 
 mode "$cmus_list"{
@@ -364,10 +369,10 @@ for_window [instance="pica"] move to scratchpad ; scratchpad show
 #bind de notepad
 bindsym $mod+Shift+N exec urxvt -name pica +sb -e micro ~/notas.txt
 
-#bind modo trabajo
-bindsym $mod+T exec ~/dotfiles/bin/i3hider/i3hider2.sh
-
 #bind ranger
-bindsym $mod+U exec konsole --hide-menubar -e ranger
+bindsym $mod+U exec urxvt --hide-menubar -e ranger
 
 bindcode 156 --release exec notify-send "Boton flashero" "No se que hacer con este boton"
+
+#bind spectacle(captura de pantalla)
+bindcode 107 --release exec spectacle

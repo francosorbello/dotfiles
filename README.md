@@ -22,3 +22,4 @@ Mis configuraciones de Linux
 - surf
 - libinput
 - display-visor
+- awesome font(para los iconos)
