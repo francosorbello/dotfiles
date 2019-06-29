@@ -23,3 +23,4 @@ Mis configuraciones de Linux
 - libinput
 - display-visor
 - awesome font(para los iconos)
+- powerline-shell

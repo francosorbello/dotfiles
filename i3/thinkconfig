@@ -23,8 +23,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec terminal
-bindsym $mod+Return exec tilix
-bindsym $mod+Shift+Return exec urxvt -name pica +sb
+bindsym $mod+Return exec xfce4-terminal --hide-menubar 
+bindsym $mod+Shift+Return exec urxvt
 
 
 # kill focused window
@@ -163,6 +163,7 @@ bindsym $mod+Shift+9 move container to workspace number 9 $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # dual monitor setup
+workspace 5 output VGA1
 workspace 6 output VGA1
 workspace 7 output VGA1
 workspace 8 output VGA1
@@ -230,7 +231,8 @@ mode "resize" {
 #exec urxvt -name pica +sb -e python ~/dotfiles/bin/pygreet.py
 #fondo de pantalla
 #exec ~/dotfiles/bin/wallchanger/auto_wall_changer.sh
-exec_always compton
+#con -f añado transicion entre ventanas
+exec_always compton -f
 #notificador
 exec systemctl --user start xfce4-notifyd
 
@@ -238,7 +240,8 @@ exec systemctl --user start xfce4-notifyd
 exec setxkbmap -option caps:ctrl_modifier
 exec ~/dotfiles/bin/thinkbind.sh
 
-exec nitrogen --set-auto /home/rulo/Imágenes/okami.png
+#exec nitrogen --set-auto /home/rulo/Imágenes/okami.png
+exec_always feh --bg-scale Imágenes/okami.png
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
@@ -376,3 +379,5 @@ bindcode 156 --release exec notify-send "Boton flashero" "No se que hacer con es
 
 #bind spectacle(captura de pantalla)
 bindcode 107 --release exec spectacle
+
+bindcode $mod+156 --release exec /home/rulo/dotfiles/bin/dualthink.sh; exec i3-msg restart
