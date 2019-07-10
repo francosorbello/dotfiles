@@ -199,6 +199,9 @@ mode "$gapping"{
 	bindsym Escape mode "default"
 }
 
+# hide/unhide i3status bar
+bindsym $mod+Shift+H bar mode toggle ,gaps inner all set 0 , gaps outer all set 0 
+
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -290,8 +293,6 @@ bar {
             }
 }
 
-# hide/unhide i3status bar
-bindsym $mod+Shift+H bar mode toggle ,gaps inner all set 0 , gaps outer all set 0 
 
 #############################
 ### settings for i3-gaps: ###
