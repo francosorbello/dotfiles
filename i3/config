@@ -224,7 +224,8 @@ mode "resize" {
 
 #exec urxvt -name pica +sb -e python ~/dotfiles/bin/pygreet.py
 #fondo de pantalla
-exec ~/dotfiles/bin/wallchanger/auto_wall_changer.sh
+#exec ~/dotfiles/bin/wallchanger/auto_wall_changer.sh
+exec nitrogen --set-auto ~/Imágenes/fondo.jpg
 exec_always compton
 #notificador
 exec systemctl --user start xfce4-notifyd
@@ -241,7 +242,6 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id start_conky_grey
-exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
@@ -269,19 +269,21 @@ client.background       #383C4A
 # finds out, if available)
 set $bg-colorT #00000000
 
-bar {
-        i3bar_command i3bar -t
-        status_command i3blocks
-        position top
-            colors {
-                background $bg-colorT
-                separator #757575
-                #                  border             background         text
-                focused_workspace  $bg-colorT          $bg-colorT          $text-color
-                inactive_workspace $bg-colorT $bg-colorT $inactive-text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-            }
-}
+#bar {
+#        i3bar_command i3bar -t
+#        status_command i3blocks
+#        position top
+#            colors {
+#                background $bg-colorT
+#                separator #757575
+#                #                  border             background         text
+#                focused_workspace  $bg-colorT          $bg-colorT          $text-color
+#                inactive_workspace $bg-colorT $bg-colorT $inactive-text-color
+#                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+ #           }
+#}
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # hide/unhide i3status bar
 bindsym $mod+Shift+H bar mode toggle ,gaps inner all set 0 , gaps outer all set 0 
@@ -364,9 +366,9 @@ for_window [instance="pica"] move to scratchpad ; scratchpad show
 
 #bind de notepad
 bindsym $mod+Shift+N exec urxvt -name pica +sb -e micro ~/notas.txt
-
 #bind modo trabajo
 bindsym $mod+T exec ~/dotfiles/bin/i3hider/i3hider2.sh
 
 #bind ranger
 bindsym $mod+U exec konsole --hide-menubar -e ranger
+bindcode 107 --release exec spectacle
