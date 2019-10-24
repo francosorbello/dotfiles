@@ -225,7 +225,7 @@ mode "resize" {
 #exec urxvt -name pica +sb -e python ~/dotfiles/bin/pygreet.py
 #fondo de pantalla
 #exec ~/dotfiles/bin/wallchanger/auto_wall_changer.sh
-exec nitrogen --set-auto ~/Imágenes/fondo.jpg
+exec nitrogen --set-auto ~/dotfiles/img/cyber-fondo.jpg
 exec_always compton
 #notificador
 exec systemctl --user start xfce4-notifyd
