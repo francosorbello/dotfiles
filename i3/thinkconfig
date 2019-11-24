@@ -235,7 +235,7 @@ mode "resize" {
 #fondo de pantalla
 #exec ~/dotfiles/bin/wallchanger/auto_wall_changer.sh
 #con -f añado transicion entre ventanas
-exec_always compton -f
+exec_always compton -f --config ~/.config/compton.conf
 #notificador
 exec systemctl --user start xfce4-notifyd
 
@@ -244,7 +244,7 @@ exec setxkbmap -option caps:ctrl_modifier
 exec ~/dotfiles/bin/thinkbind.sh
 
 #exec nitrogen --set-auto /home/rulo/Imágenes/okami.png
-exec_always feh --bg-scale Imágenes/okami.png
+exec_always feh --bg-scale ~/dotfiles/img/cyber-fondo.jpg
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
@@ -254,6 +254,7 @@ exec --no-startup-id clipit
 exec --no-startup-id start_conky_grey
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec --no-startup-id parcellite
 
 ################################################################################
 # Look and Feel			                                                       #
@@ -278,20 +279,20 @@ client.background       #383C4A
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 set $bg-colorT #00000000
-
-bar {
-        i3bar_command i3bar -t
-        status_command i3blocks
-	position top
-            colors {
-                background $bg-colorT
-                separator #757575
-                #                  border             background         text
-                focused_workspace  $bg-colorT          $bg-colorT          $text-color
-                inactive_workspace $bg-colorT $bg-colorT $inactive-text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-            }
-}
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#bar {
+#        i3bar_command i3bar -t
+#        status_command i3blocks
+#	position top
+#            colors {
+#                background $bg-colorT
+#                separator #757575
+#                #                  border             background         text
+#                focused_workspace  $bg-colorT          $bg-colorT          $text-color
+#                inactive_workspace $bg-colorT $bg-colorT $inactive-text-color
+#                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#            }
+#}
 
 
 #############################
@@ -341,7 +342,7 @@ bindsym $mod+o exec opera
 set $cmus_list CMUS: (n)next,(a)previous,(p)pause,(c)play
 
 #bind para iniciar app de musica
-bindsym $mod+Shift+M workspace  ;exec urxvt -e cmus 
+bindsym $mod+Shift+M workspace  ;exec xfce4-terminal --hide-menubar -e cmus
 
 
 mode "$cmus_list"{
@@ -382,3 +383,7 @@ bindcode 156 --release exec notify-send "Boton flashero" "No se que hacer con es
 bindcode 107 --release exec spectacle
 
 bindcode $mod+156 --release exec /home/rulo/dotfiles/bin/dualthink.sh; exec i3-msg restart
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound

@@ -1,4 +1,4 @@
-77777777777777777;==========================================================
+;==========================================================
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -63,7 +63,7 @@ font-2 = FontAwesome:style=Regular:size=9;1
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = player-cmus pulseaudio cpu memory network battery temperature date 
+modules-right = player-cmus pulseaudio cpu network battery temperature date 
 
 tray-position = right
 tray-padding = 2
@@ -271,12 +271,3 @@ interval = 5
 click-left = cmus-remote -n
 click-right = cmus-remote -r
 click-middle = cmus-remote -u
-
-[module/memory]
-type = internal/memory
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 3
-
-label =  %gb_used%/%gb_total%
