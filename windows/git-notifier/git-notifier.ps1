@@ -23,3 +23,4 @@ Get-ChildItem -Recurse -Directory | ForEach-Object {
             New-BurntToastNotification -AppLogo C:\Users\Rulo\Documents\git-notifier\icon.png -Text "Git Notifier", $texto
     }
 }
+exit
