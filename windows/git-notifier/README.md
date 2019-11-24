@@ -9,6 +9,6 @@ Para ejecutarlo constantemente es necesario que cree una Task de Windows. Para e
 2. Seleccione "Create Basic Task"
 3. En la pestaña Trigger, seleccione "When I log on"
 4. En Action seleccione "Start a program"
-5. Escriba "Powershell.exe" y en "Add arguments ingrese la dirección del directorio donde tiene guardado el script"
+5. Escriba "Powershell.exe" y en "Add arguments" ingrese la dirección del directorio donde tiene guardado el script
 6. Una vez creado, haga doble click en la Task y vaya a la pestaña "Triggers".
 7. Clickee "Edit". Luego en las opciones avanzadas Active "Repeat task every: 30 minutes | for a duration of: Indefinitely"
