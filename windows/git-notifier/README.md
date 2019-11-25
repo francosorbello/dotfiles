@@ -1,4 +1,4 @@
-#DEPRECADO. Ahora el programa esta en https://github.com/francosorbello/git-notifier
+# DEPRECADO. Ahora el programa esta en https://github.com/francosorbello/git-notifier
 
 # Git notifier
 Script que crea notificaciones de Windows cuando uno de los repos se actualiza.
