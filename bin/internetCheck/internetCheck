@@ -1,0 +1,10 @@
+#!/bin/bash
+
+while true; do
+ping -c1 www.google.com > /dev/null && break;
+sleep 5
+done
+
+notify-send "Internet funcionando."
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )""/inflicted.ogg"
+paplay $DIR
