@@ -1,4 +1,6 @@
 #!/bin/bash
+setxkbmap -model pc104 -layout latam
+
 #con este script cambio los botones "repag" y "avpag" por inicio y fin y viceversa
 xmodmap -e "keycode 110 = Prior"
 xmodmap -e "keycode 112 = Home"
